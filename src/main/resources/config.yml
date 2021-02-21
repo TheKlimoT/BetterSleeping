@@ -27,7 +27,7 @@
 language: "en-US"
 
 # Choose whether to use the short prefix: [BS] (true) or the long one [BetterSleeping] (false)
-shorten_prefix: true
+prefix: ""
 
 # Choose where messages show up
 # Messages are shown in the chat when set to false, and shown in the action bar when set to true

@@ -21,20 +21,20 @@ public class Messenger {
     private final BypassChecker bypassChecker;
     private final PapiSetter papiSetter;
     private final boolean sendToBypassedPlayers;    // Whether or not bypassed players should receive messages (depends on the individual message as well)
-    private final boolean doShortenPrefix;          // Whether or not the short prefix variant is to be used
+    private final String prefix;          // Whether or not the short prefix variant is to be used
 
 
     /**
      * Creates a messenger for player output
      * @param messages the messages from lang.yml, mapping path to message
      */
-    public Messenger(Map<String, String> messages, BypassChecker bypassChecker, boolean sendToBypassedPlayers, boolean doShortenPrefix)
+    public Messenger(Map<String, String> messages, BypassChecker bypassChecker, boolean sendToBypassedPlayers, String prefix)
     {
         this.messages = messages;
         this.bypassChecker = bypassChecker;
         this.papiSetter = new PapiSetter();
         this.sendToBypassedPlayers = sendToBypassedPlayers;
-        this.doShortenPrefix = doShortenPrefix;
+        this.prefix = prefix;
     }
 
 
@@ -90,7 +90,6 @@ public class Messenger {
         }
 
         // Get the prefix and put it before the message
-        String prefix = doShortenPrefix ? "&6[BS3] &3" : "&6[BetterSleeping] &3";
         message = prefix + message;
 
         // Perform final replacements for color
